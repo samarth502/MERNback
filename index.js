@@ -33,7 +33,12 @@ app.use('/api/product' , productRouter.router);
 // cart Router
 app.use('/api/cart',cartRouter.router)
 
+app.get('/',(req,res)=>{
+    app.use(express.static(path.resolve(__dirname,"Front-end","build")));
+    res.sendFile(path.resolve(__dirname,"Front-end","build","index.html"));
 
+
+})
 
 
 main().catch(err => console.log(err));
